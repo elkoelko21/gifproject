@@ -3,10 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>only skibidi's win</title>
+    <title>GIF Viewer</title>
 </head>
 <body>
-    <!-- Header -->
-    <h1>dont be too skibidi</h1>
+    <h1>GIF Viewer</h1>
+    <p>Loading your GIF...</p>
+    <img id="gifImage" src="" alt="GIF" width="400">
+
+    <script>
+        // Get the GIF name from the URL
+        const params = new URLSearchParams(window.location.search);
+        const gifName = params.get('gif');
+
+        if (gifName) {
+            // Set the image source to the correct GIF file
+            document.getElementById('gifImage').src = `assets/gifs/${gifName}.gif`;
+        } else {
+            document.body.innerHTML = "<h1>GIF not found. Add ?gif=filename to the URL.</h1>";
+        }
+    </script>
 </body>
 </html>
