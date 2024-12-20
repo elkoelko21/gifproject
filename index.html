@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GIF Viewer</title>
+    
+    <!-- Open Graph Metadata for Discord -->
+    <meta property="og:type" content="image">
+    <meta property="og:title" content="GIF Viewer">
+    <meta property="og:image" id="ogImage" content="">
+    <meta property="og:url" content="">
+</head>
+<body>
+    <h1>GIF Viewer</h1>
+    <p id="status">Loading your GIF...</p>
+    <img id="gifImage" src="" alt="GIF" width="400">
+
+    <script>
+        // Get the GIF name from the URL
+        const params = new URLSearchParams(window.location.search);
+        const gifName = params.get('gif');
+
+        if (gifName) {
+            // Build the GIF file path
+            const gifPath = `assets/gifs/${gifName}.gif`;
+
+            // Check if the GIF file exists
+            fetch(gifPath)
+                .then(response => {
+                    if (response.ok) {
+                        // If the file exists, set the image source
+                        document.getElementById('gifImage').src = gifPath;
+
+                        // Set Open Graph metadata dynamically
+                        document.getElementById('ogImage').content = gifPath;
+                        document.querySelector('meta[property="og:url"]').content = window.location.href;
+
+                        // Update status
+                        document.getElementById('status').textContent = "GIF Loaded!";
+                    } else {
+                        // If the file doesn't exist, show an error
+                        document.body.innerHTML = "<h1>GIF not found. Please check the filename.</h1>";
+                    }
+                })
+                .catch(() => {
+                    document.body.innerHTML = "<h1>Error loading GIF. Please try again later.</h1>";
+                });
+        } else {
+            // No GIF parameter provided in the URL
+            document.body.innerHTML = "<h1>GIF not found. Add ?gif=filename to the URL.</h1>";
+        }
+    </script>
+</body>
+</html>
