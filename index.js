@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const { sleep } = require('./modules');
 
-fs.readdirSync('./').forEach(file => {
+fs.readdirSync('../../').forEach(file => {
     console.log(file);
 });
 
