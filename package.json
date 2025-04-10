@@ -1,0 +1,21 @@
+{
+  "name": "gifproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elkoelko21/gifproject.git"
+  },
+  "keywords": [],
+  "author": "elko21",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/elkoelko21/gifproject/issues"
+  },
+  "homepage": "https://github.com/elkoelko21/gifproject#readme"
+}
