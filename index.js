@@ -36,7 +36,7 @@ http.createServer(function(req, res) {
     }
 
     if (req.url == "/uploadimg" && req.method === "POST") {
-        const busboy = new Busboy({ headers: req.headers });
+        const busboy = Busboy({ headers: req.headers });
 
         busboy.on('file', function(fieldname, file, filename) {
             file.pipe(fs.createWriteStream('image.png'));
