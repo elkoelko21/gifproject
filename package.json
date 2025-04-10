@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/elkoelko21/gifproject/issues"
   },
-  "homepage": "https://github.com/elkoelko21/gifproject#readme"
+  "homepage": "https://github.com/elkoelko21/gifproject#readme",
+  "dependencies": {
+    "busboy": "^1.6.0"
+  }
 }
